@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/aaronstaves/hubot-read-tweet.svg?branch=master)](https://travis-ci.org/aaronstaves/hubot-read-tweet)
 
-A regex find/replace watcher for Hubots
+Outputs a twitter status when hubot hears a twitter url
 
 See [`src/.read-tweet.coffee`](src/read-tweet.coffee) for full documentation.
 
