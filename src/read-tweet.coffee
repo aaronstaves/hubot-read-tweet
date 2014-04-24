@@ -20,12 +20,13 @@ request    = require 'request'
  
 module.exports = (robot) ->
  
-  robot.hear /https*\:\/\/(www)*twitter.com\/(.+?)\/status\/\d+/i, (msg) ->
+  robot.hear /https*\:\/\/(www\.)*twitter.com\/(.+?)\/status\/(\d+)/i, (msg) ->
  
-    url = msg.match[0]
  
     twitterUser = msg.match[2];
+    twitterId = msg.match[3];
     username = msg.message.user.name
+    url = "https://twitter.com/#{twitterUser}/status/#{twitterId}"
     request(
       url
       (error, response, body) ->

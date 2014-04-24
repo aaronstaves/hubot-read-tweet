@@ -32,6 +32,6 @@
   "main": "index.coffee",
   "homepage": "https://github.com/aaronstaves/hubot-read-tweet",
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script --reporter spec"
+    "test": "mocha --compilers coffee:coffee-script --reporter spec -t 10000"
   }
 }
