@@ -1,0 +1,37 @@
+{
+  "name": "hubot-read-tweet",
+  "description": "Reads contents of a twitter status URL and outputs to adapter",
+  "version": "0.0.1",
+  "author": "Aaron Staves <aaron@aarons.io>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "tweet",
+    "twitter",
+    "status"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aaronstaves/hubot-read-tweet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aaronstaves/hubot-read-tweet/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "devDependencies": {
+    "cheerio": "~0.15.0",
+    "chai": "~1.9.0",
+    "hubot": "~2.7.2",
+    "hubot-mock-adapter": "~1.0.0",
+    "mocha": "~1.18.2",
+    "request": "~2.30.0"
+  },
+  "main": "index.coffee",
+  "homepage": "https://github.com/aaronstaves/hubot-read-tweet",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script --reporter spec"
+  }
+}
