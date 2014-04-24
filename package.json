@@ -1,7 +1,7 @@
 {
   "name": "hubot-read-tweet",
   "description": "Reads contents of a twitter status URL and outputs to adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Aaron Staves <aaron@aarons.io>",
   "license": "MIT",
   "keywords": [

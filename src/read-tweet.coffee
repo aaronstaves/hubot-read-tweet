@@ -1,36 +1,44 @@
 # Description:
-#   Returns the title when a link is posted
+#   Returns the status of a tweet when hubot "hears' a twitter url
 #
 # Dependencies:
 #   "cheerio": "0.15.0"
 #   "request": "2.30.0"
 #
 # Configuration:
-#   HUBOT_URL_TITLE_IGNORE_URLS - RegEx used to exclude Urls
-#   HUBOT_URL_TITLE_IGNORE_USERS - Comma-separated list of users to ignore
+#   none
 #
 # Commands:
-#   http(s)://<site> - prints the title for site linked
+#   http(s)://(www.)twitter.com/<user>/status/<tweetId> - prints the status of a tweet
 #
 # Author:
-#   ajacksified, dentarg
+#   https://github.com/aaronstaves/
  
 cheerio    = require 'cheerio'
 request    = require 'request'
- 
+
 module.exports = (robot) ->
- 
+
   robot.hear /https*\:\/\/(www\.)*twitter.com\/(.+?)\/status\/(\d+)/i, (msg) ->
- 
- 
+
     twitterUser = msg.match[2];
     twitterId = msg.match[3];
-    username = msg.message.user.name
+
+    # Default to https twitter url for less hassle/redirects
     url = "https://twitter.com/#{twitterUser}/status/#{twitterId}"
+
+    # Grab body
     request(
       url
       (error, response, body) ->
+
+        # If success
         if response.statusCode == 200
+
+          # Parse the body
           $ = cheerio.load(body)
+
+          # Only grab first instance, subsequent instances are replies to the 
+          # original tweet
           msg.send "@#{twitterUser}: " + $('.tweet-text').first().text()
     )
